@@ -23,11 +23,21 @@ public class LibraryService {
   }
 
   public void listAvailableBooks(){
+    List<Book> availableBooks = new ArrayList<>();
+    
     for (Book book : books){
       if(book.isAvailable()){
+        availableBooks.add(book);
+      }
+    }
+
+    if (availableBooks.isEmpty()) {
+      System.out.println("There is no available books");
+    } else {
+      for (Book book : availableBooks){
         System.out.println(book);
       }
-    } 
+    }
   }
 
 
